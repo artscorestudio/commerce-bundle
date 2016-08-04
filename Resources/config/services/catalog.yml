@@ -1,0 +1,11 @@
+services:
+    # Forms   
+    asf_commerce.form.factory.catalog:
+        class: ASF\CommerceBundle\Form\Factory\FormFactory
+        arguments: ["@form.factory", "%asf_commerce.catalog.form.name%", "%asf_commerce.catalog.form.type%", "%asf_commerce.catalog.entity%"]
+        
+    asf_commerce.form.type.catalog:
+        class: ASF\CommerceBundle\Form\Type\CatalogType
+        tags:
+            - { name: form.type, alias: catalog_type }
+            

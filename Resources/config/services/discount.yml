@@ -1,0 +1,11 @@
+services:
+    # Forms   
+    asf_commerce.form.factory.discount:
+        class: ASF\CommerceBundle\Form\Factory\FormFactory
+        arguments: ["@form.factory", "%asf_commerce.discount.form.name%", "%asf_commerce.discount.form.type%", "%asf_commerce.discount.entity%"]
+        
+    asf_commerce.form.type.discount:
+        class: ASF\CommerceBundle\Form\Type\DiscountType
+        tags:
+            - { name: form.type, alias: discount_type }
+            
