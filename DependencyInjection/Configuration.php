@@ -33,6 +33,9 @@ class Configuration implements ConfigurationInterface
         // more information on that topic.
         $rootNode
             ->children()
+                ->booleanNode('enable_catalog_entity')
+                    ->defaultFalse()
+                ->end()
                 ->append($this->addCartParameterNode())
                 ->append($this->addCatalogParameterNode())
                 ->append($this->addDiscountParameterNode())
@@ -159,7 +162,7 @@ class Configuration implements ConfigurationInterface
     protected function addTaxParameterNode()
     {
         $builder = new TreeBuilder();
-        $node = $builder->root('discount');
+        $node = $builder->root('tax');
     
         $node
             ->treatTrueLike(array('entity' => null, 'form' => array('type' => "ASF\CommerceBundle\Form\Type\TaxType")))

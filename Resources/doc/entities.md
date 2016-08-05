@@ -43,29 +43,29 @@ interface CartInterface
 
 [View source](../../Model/Cart/CartInterface.php).
 
-## Category and CategoryInterface
+## Discount and DiscountInterface
 
-Product entities have a relation with a Category entity. Like Product entity, a model class is available that you can expand or an interface to implement. If you create your Category entity from scratch, do not forget to implement the CategoryInterface interface, which will be asked by the functionality of the bundle to ensure that your entity get the methods needed.
+If you want to create a Discount entity, a model class is available that you can expand or an interface to implement. If you create your Discount entity from scratch, do not forget to implement the DiscountInterface interface, which will be asked by the functionality of the bundle to ensure that your entity get the methods needed.
 
 ```php
 <?php
-// @ASFCommerceBundle/Model/Category/Category.php
-namespace ASF\CommerceBundle\Model\Category;
+// @ASFCommerceBundle/Model/Discount/Discount.php
+namespace ASF\CommerceBundle\Model\Discount;
 
-class CategoryModel implements CategoryInterface
+class DiscountModel implements DiscountInterface
 {
     // [...]
 }
 ```
 
-[View source](../../Model/Category/CategoryModel.php).
+[View source](../../Model/Discount/DiscountModel.php).
 
 ```php
 <?php
-// @ASFCommerceBundle/Model/Category/CategoryInterface.php
-namespace ASF\CommerceBundle\Model\Category;
+// @ASFCommerceBundle/Model/Discount/DiscountInterface.php
+namespace ASF\CommerceBundle\Model\Discount;
 
-interface CategoryInterface
+interface catalogInterface
 {
     /**
      * @return string
@@ -76,128 +76,74 @@ interface CategoryInterface
 }
 ```
 
-[View source](../../Model/Category/CategoryInterface.php).
+[View source](../../Model/Discount/DiscountInterface.php).
 
-## [Optionnal] Brand and BrandInterface
+## Tax and TaxInterface
 
-Product entities can have a relation with a Brand entity. Like Product entity, a model class is available that you can expand or an interface to implement. If you create your Brand entity from scratch, do not forget to implement the BrandInterface interface, which will be asked by the functionality of the bundle to ensure that your entity get the methods needed.
+If you want to create a Tax entity, a model class is available that you can expand or an interface to implement. If you create your Tax entity from scratch, do not forget to implement the TaxInterface interface, which will be asked by the functionality of the bundle to ensure that your entity get the methods needed.
 
 ```php
 <?php
-// @ASFCommerceBundle/Model/Brand/Brand.php
-namespace ASF\CommerceBundle\Model\Brand;
+// @ASFCommerceBundle/Model/Tax/Tax.php
+namespace ASF\CommerceBundle\Model\Tax;
 
-class BrandModel implements BrandInterface
+class TaxModel implements TaxInterface
 {
     // [...]
 }
 ```
 
-[View source](../../Model/Brand/BrandModel.php).
+[View source](../../Model/Tax/TaxModel.php).
 
 ```php
 <?php
-// @ASFCommerceBundle/Model/Brand/BrandInterface.php
-namespace ASF\CommerceBundle\Model\Brand;
+// @ASFCommerceBundle/Model/Tax/TaxInterface.php
+namespace ASF\CommerceBundle\Model\Tax;
 
-interface BrandInterface
+interface catalogInterface
 {
     /**
      * @return string
      */
     public function getName();
-    
+	
+	// [...]
+}
+```
+
+[View source](../../Model/Tax/TaxInterface.php).
+
+## [Optionnal] Catalog and CatalogInterface
+
+If you want to create a Catalog entity, a model class is available that you can expand or an interface to implement. If you create your Catalog entity from scratch, do not forget to implement the CatalogInterface interface, which will be asked by the functionality of the bundle to ensure that your entity get the methods needed.
+
+```php
+<?php
+// @ASFCommerceBundle/Model/Catalog/Catalog.php
+namespace ASF\CommerceBundle\Model\Catalog;
+
+class CatalogModel implements CatalogInterface
+{
     // [...]
 }
 ```
 
-[View source](../../Model/Brand/BrandInterface.php).
-
-## [Optionnal] ProductPackInterface and ProductPackProductInterface
-
-> This feature was disabled (not tested).
-
-A product can be a "collection" of products, this is a pack. ASFCommerceBundle provides two interfaces that you can implements : ProductPackInterface which is a Product with additionnal parameters and ProductPackProductInterface which is an interface to implements for create an entity representing the relation between Product entities and ProductPack entity.
+[View source](../../Model/Catalog/CatalogModel.php).
 
 ```php
 <?php
-// @ASFCommerceBundle/Model/Product/ProductPackInterface.php
-namespace ASF\CommerceBundle\Model\Product;
+// @ASFCommerceBundle/Model/Catalog/CatalogInterface.php
+namespace ASF\CommerceBundle\Model\Catalog;
 
-interface ProductPackInterface
+interface catalogInterface
 {
     /**
-     * @return ArrayCollection
+     * @return string
      */
-    public function getProducts();
-
-    /**
-     * @param \ASF\CommerceBundle\Model\Product\ProductInterface $product
-     *
-     * @return \ASF\CommerceBundle\Model\Product\ProductPackInterface
-     */
-    public function addProduct(ProductInterface $product);
-
-    /**
-     * @param \ASF\CommerceBundle\Model\Product\ProductInterface $product
-     *
-     * @return \ASF\CommerceBundle\Model\Product\ProductPackInterface
-     */
-    public function removeProduct(ProductInterface $product);
+    public function getName();
+	
+	// [...]
 }
 ```
 
-[View source](../../Model/Product/ProductPackInterface.php).
-
-```php
-<?php
-// @ASFCommerceBundle/Model/Product/ProductPackProductInterface.php
-namespace ASF\CommerceBundle\Model\Product;
-
-interface ProductPackProductInterface
-{
-    /**
-     * @return int
-     */
-    public function getId();
-
-    /**
-     * @return \ASF\CommerceBundle\Model\Product\ProductPackInterface
-     */
-    public function getProductPack();
-
-    /**
-     * @param \ASF\CommerceBundle\Model\Product\ProductInterface $product
-     *
-     * @return \ASF\CommerceBundle\Model\Product\ProductPackInterface
-     */
-    public function setProductPack(ProductPackInterface $product);
-
-    /**
-     * @return \ASF\CommerceBundle\Model\Product\ProductInterface
-     */
-    public function getProduct();
-
-    /**
-     * @param \ASF\CommerceBundle\Model\ProductInterface $product
-     *
-     * @return \ASF\CommerceBundle\Model\Product\ProductInterface
-     */
-    public function setProduct(ProductInterface $product);
-
-    /**
-     * @return numeric
-     */
-    public function getOrder();
-
-    /**
-     * @param numeric $order
-     *
-     * @return \ASF\CommerceBundle\Model\Product\ProductInterface
-     */
-    public function setOrder($order);
-}
-```
-
-[View source](../../Model/Product/ProductPackProductInterface.php).
-
+[View source](../../Model/Catalog/CatalogInterface.php).

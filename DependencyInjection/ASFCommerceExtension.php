@@ -37,7 +37,7 @@ class ASFCommerceExtension extends Extension
         
         $this->setCartParameters($container, $loader, $config);
         $this->setCatalogParameters($container, $loader, $config);
-        $this->setDsicountParameters($container, $loader, $config);
+        $this->setDiscountParameters($container, $loader, $config);
         $this->setTaxParameters($container, $loader, $config);
     }
 
@@ -73,6 +73,11 @@ class ASFCommerceExtension extends Extension
      */
     protected function setCatalogParameters(ContainerBuilder $container, YamlFileLoader $loader, array $config)
     {
+        if ( false === $config['enable_catalog_entity'] ) {
+            $container->setParameter('asf_commerce.catalog.entity', $config['catalog']['entity']);
+            return;
+        }
+        
         if (null === $config['catalog']['entity']) {
             throw new InvalidConfigurationException('The asf_commerce.catalog.entity parameter must be defined.');
         }
