@@ -10,7 +10,7 @@
 
 namespace ASF\CommerceBundle\Utils\Manager;
 
-use ASF\CommerceBundle\Model\Commerce\CommerceInterface;
+use ASF\CommerceBundle\Model\Commerce\CommerceManagerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -66,7 +66,7 @@ class CommerceManager implements CommerceManagerInterface
      * 
      * @return object
      */
-    public function createartInstance()
+    public function createCartInstance()
     {
         $class = new \ReflectionClass($this->cartClassName);
 
