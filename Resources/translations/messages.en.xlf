@@ -2,7 +2,20 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
         <body>
-        
+            <!-- STATES CHOICES -->
+            <trans-unit id="asf.commerce.state.draft">
+                <source>asf.commerce.state.draft</source>
+                <target>Draft</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.state.published">
+                <source>asf.commerce.state.published</source>
+                <target>Published</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.state.deleted">
+                <source>asf.commerce.state.deleted</source>
+                <target>Delete</target>
+            </trans-unit>
+            
             <!-- LABELS -->
             <trans-unit id="asf.commerce.label.unit_price_excl_vat">
                 <source>asf.commerce.label.unit_price_excl_vat</source>
@@ -31,6 +44,26 @@
             <trans-unit id="asf.commerce.default_value.discount_name">
                 <source>asf.commerce.default_value.discount_name</source>
                 <target>New discount</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.tax_name">
+                <source>asf.commerce.label.tax_name</source>
+                <target>Tax name</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.country">
+                <source>asf.commerce.label.country</source>
+                <target>Country</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.tax_rate">
+                <source>asf.commerce.label.tax_rate</source>
+                <target>Rate (in %)</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.state">
+                <source>asf.commerce.label.state</source>
+                <target>State</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.tax_description">
+                <source>asf.commerce.label.tax_description</source>
+                <target>Description</target>
             </trans-unit>
             
             <!-- LINKS -->
@@ -107,6 +140,10 @@
             <trans-unit id="asf.commerce.btn.add_tax">
                 <source>asf.commerce.btn.add_tax</source>
                 <target>Add tax</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.btn.save">
+                <source>asf.commerce.btn.save</source>
+                <target>Save</target>
             </trans-unit>
             
             <!-- MESSAGES -->

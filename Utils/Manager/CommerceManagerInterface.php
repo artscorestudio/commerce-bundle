@@ -18,114 +18,30 @@ namespace ASF\CommerceBundle\Utils\Manager;
 interface CommerceManagerInterface
 {
     /**
-     * Create a Product Instance.
+     * Create a Tax Instance.
      *
-     * @return \ASF\ProductBundle\Model\Product\ProductInterface
+     * @return \ASF\CommerceBundle\Model\Tax\TaxInterface
      */
-    public function createProductInstance();
+    public function createTaxInstance();
 
     /**
-     * Create a Category Instance.
+     * Create a Discount Instance.
      *
-     * @return \ASF\ProductBundle\Model\Category\CategoryInterface
+     * @return \ASF\CommerceBundle\Model\Discount\DiscountInterface
      */
-    public function createCategoryInstance();
+    public function createDiscountInstance();
 
     /**
-     * Create a Brand Instance.
+     * Create a Cart Instance.
      *
-     * @return \ASF\ProductBundle\Model\Brand\BrandInterface
+     * @return \ASF\CommerceBundle\Model\Cart\CartInterface
      */
-    public function createBrandInstance();
-
+    public function createCartInstance();
+    
     /**
-     * Populate a new product.
+     * Create a Catalog Instance.
      *
-     * @param ProductInterface $product
+     * @return \ASF\CommerceBundle\Model\Catalog\CatalogInterface
      */
-    public function populateProduct(ProductInterface $product);
-
-    /**
-     * Return a product based on keywords.
-     *
-     * @param string $keywords
-     */
-    public function getProductWithFormattedKeywords($keywords);
-
-    /**
-     * Return a list of products form list of keywords.
-     *
-     * @param string $keywords
-     *
-     * @return array
-     */
-    public function getProductsByKeywords($keywords);
-
-    /**
-     * Clean keywords for search in repository.
-     *
-     * @param string $keywords
-     *
-     * @return string
-     */
-    public function cleanKeywords($keywords);
-
-    /**
-     * Find a product name from a list of keywords.
-     *
-     * @param string $string
-     * @param bool   $is_flat
-     *
-     * @return array
-     */
-    public function findProductNameInString($string, $is_flat = false);
-
-    /**
-     * Join keywords.
-     *
-     * @param array $keywords
-     */
-    public function joinKeywords($keywords);
-
-    /**
-     * Find a brand name from a list of keywords.
-     *
-     * @param string $string
-     * @param bool   $is_flat
-     *
-     * @return array
-     */
-    public function findBrandNameInString($string, $is_flat = false);
-
-    /**
-     * Find weight property in string.
-     *
-     * @param string $string
-     */
-    public function findWeightPropertyInString($string);
-
-    /**
-     * Find capacity property in string.
-     *
-     * @param string $string
-     */
-    public function findCapacityPropertyInString($string);
-
-    /**
-     * Return formatted product name.
-     *
-     * @param ProductInterface $product
-     *
-     * @return string
-     */
-    public function getFormattedProductName(ProductInterface $product);
-
-    /**
-     * Find a product brand name from a list of keywords.
-     *
-     * @param string $string
-     *
-     * @return array
-     */
-    public function findProductBrandNameInString($string);
+    public function createCatalogInstance();
 }

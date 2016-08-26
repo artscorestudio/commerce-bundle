@@ -35,7 +35,7 @@ class TaxController extends Controller
         $this->get('event_dispatcher')->dispatch(CommerceEvents::LIST_TAXES, new Event());
         
         // Set Datagrid source
-        $source = new Entity($this->getParameter('asf_commerce.taxes.entity'));
+        $source = new Entity($this->getParameter('asf_commerce.tax.entity'));
         $tableAlias = $source->getTableAlias();
         $source->manipulateQuery(function ($query) use ($tableAlias) {
             $query instanceof QueryBuilder;

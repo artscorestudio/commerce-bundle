@@ -1,0 +1,103 @@
+{# ---------------------------------- Tax Form Type ---------------------------- #}
+{% block _tax_type_errors %}
+{% spaceless %}
+    {{ block('form_errors')  }}
+{% endspaceless %}
+{% endblock %}
+
+{% block _tax_type_widget %}
+{% spaceless %}
+
+    {{ form_errors(form) }}
+    
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_row(form.name) }}
+        </div>
+        <div class="col-sm-6">
+            {{ form_row(form.value) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_row(form.countryCode) }}
+        </div>
+        <div class="col-sm-6">
+            {{ form_row(form.state) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            {{ form_row(form.description) }}
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12">
+            <input type="submit" value="{{ 'asf.commerce.btn.save'|trans }}" class="btn btn-primary" />
+        </div>
+    </div>
+    
+{% endspaceless %}
+{% endblock %}
+
+{# --------------------- Tax Collection Prototype ----------------------------- #}
+{% block tax_collection_item_widget %}
+{% spaceless %}
+    <tr class="tax" id="tax-__txname__">
+        <td class="column-{{ prototype.vars.name }}">
+            {{ form_widget(prototype) }}
+            {{ form_errors(prototype) }}
+        </td>
+        <td class="actions">
+            <a href="#" title="{{ 'Delete'|trans({}, 'asf_commerce') }}" class="delete-tax" data-id="tax-__txname__"><span class="glyphicon glyphicon-remove"></span></a>
+        </td>
+    </tr>
+{% endspaceless %}
+{% endblock %}
+
+{# --------------------- Tax Collection Form Type ----------------------------- #}
+{% block tax_collection_row %}
+{% spaceless %}
+
+    {% if prototype is defined %}
+        {% set attr = attr|merge({'data-prototype': block(collection_item_widget) }) %}
+    {% endif %}
+    
+    <div {{ block('widget_container_attributes') }}>
+        <div class="row form-collection-cmd-wrapper">
+            <div class="col-sm-9 wr-label">
+                <label>{{ 'Including tax'|trans({}, 'asf_commerce') }}</label>
+            </div>
+            <div class="col-sm-3 text-right cmd-list">
+                <div class="btn-group btn-group-xs" role="group">
+                    <a href="#" title="{{ 'Add'|trans({}, 'asf_commerce') }}" class="btn btn-default tax-add"><span class="glyphicon glyphicon-plus"></span></a>
+                </div>
+            </div>
+        </div>
+        {{ form_errors(form) }}
+        <table class="table taxes-list form-collection">
+            {% set item_id = 0 %}
+            {% for item in form %}
+                <tr class="tax" id="tax-{{ item_id }}">
+                    <td class="column-{{ item.vars.name }}">
+                        {{ form_widget(item) }}
+                        {{ form_errors(item) }}
+                    </td>
+                    <td class="actions">
+                        <a href="#" title="{{ 'Delete'|trans({}, 'asf_commerce') }}" class="delete-tax" data-id="tax-{{ item_id }}"><span class="glyphicon glyphicon-remove"></span></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            {% set item_id = item_id + 1 %}
+        </table>
+    </div>
+    <script type="text/javascript">
+    (function($, window, document){
+        $(function(){
+            $('#{{ form.vars.id }}').asfTaxCollection();
+        });
+    }(window.jQuery, window, document));
+    </script>
+{% endspaceless %}
+{% endblock %}

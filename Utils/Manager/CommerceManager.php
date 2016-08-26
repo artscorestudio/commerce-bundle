@@ -10,7 +10,6 @@
 
 namespace ASF\CommerceBundle\Utils\Manager;
 
-use ASF\CommerceBundle\Model\Commerce\CommerceManagerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -106,6 +105,16 @@ class CommerceManager implements CommerceManagerInterface
     {
         $class = new \ReflectionClass($this->taxClassName);
     
+        return $class->newInstanceArgs();
+    }
+    
+    public function createCatalogInstalce()
+    {
+        if ( null === $this->catalogClassName )
+            throw new \Exception('The entity Catalog was not enabled in ASFCommerceBundle.');
+        
+        $class = new \ReflectionClass($this->catalogClassName);
+        
         return $class->newInstanceArgs();
     }
 }

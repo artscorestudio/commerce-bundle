@@ -13,6 +13,11 @@ namespace ASF\CommerceBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use ASF\CommerceBundle\Model\Tax\TaxModel;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 /**
  * Tax Form Type.
@@ -22,37 +27,38 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class TaxType extends AbstractType
 {
     /**
-     * @var string
-     */
-    protected $className;
-
-    /**
-     * @param string $className
-     * @param bool   $isBrandEntityEnabled
-     */
-    public function __construct($className)
-    {
-        $this->className = $className;
-    }
-
-    /**
      * @param FormBuilderInterface $builder
      * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $builder->add('name', TextType::class, array(
+            'label' => 'asf.commerce.label.tax_name',
+            'required' => true
+        ))
         
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @see \Symfony\Component\Form\AbstractType::configureOptions()
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => $this->className,
+        ->add('countryCode', CountryType::class, array(
+            'label' => 'asf.commerce.label.country',
+            'required' => true,
+            'preferred_choices' => array('FR')
+        ))
+        
+        ->add('value', TextType::class, array(
+            'label' => 'asf.commerce.label.tax_rate',
+            'required' => true
+        ))
+        ->add('description', TextareaType::class, array(
+            'label' => 'asf.commerce.label.tax_description',
+            'required' => true
+        ))
+        
+        ->add('state', ChoiceType::class, array(
+            'label' => 'asf.commerce.label.state',
+            'required' => true,
+            'choices' => array(
+                'asf.commerce.state.draft' => TaxModel::STATE_DRAFT,
+                'asf.commerce.state.published' => TaxModel::STATE_PUBLISHED
+            ),
         ));
     }
 

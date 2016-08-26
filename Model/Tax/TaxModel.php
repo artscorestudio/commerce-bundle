@@ -46,7 +46,7 @@ abstract class TaxModel implements TaxInterface
      * @ORM\Column(type="string", nullable=false)
      * @Assert\NotBlank()
      * @Assert\Choice(callback = "getStates")
-     * @GRID\Column(title="asf.commerce.state", filter="select",  selectFrom="values", values={
+     * @GRID\Column(title="asf.commerce.label.state", filter="select",  selectFrom="values", values={
      *     TaxModel::STATE_DRAFT = "draft",
      *     TaxModel::STATE_PUBLISHED = "published",
      *     TaxModel::STATE_DELETED = "deleted"
@@ -59,7 +59,7 @@ abstract class TaxModel implements TaxInterface
 	/**
      * @ORM\Column(type="string", nullable=false)
      * @Assert\NotBlank()
-     * @GRID\Column(title="asf.commerce.tax_name", defaultOperator="like", operatorsVisible=false)
+     * @GRID\Column(title="asf.commerce.label.tax_name", defaultOperator="like", operatorsVisible=false)
      * 
      * @var string
      */
@@ -68,7 +68,7 @@ abstract class TaxModel implements TaxInterface
 	/**
      * @ORM\Column(type="string", nullable=false)
      * @Assert\NotBlank()
-     * @GRID\Column(title="asf.commerce.country_code", defaultOperator="like", operatorsVisible=false)
+     * @GRID\Column(title="asf.commerce.label.country", defaultOperator="like", operatorsVisible=false)
      * 
      * @var string
      */
@@ -77,15 +77,23 @@ abstract class TaxModel implements TaxInterface
 	/**
      * @ORM\Column(type="float", nullable=false)
      * @Assert\NotBlank()
-     * @GRID\Column(title="asf.commerce.value", defaultOperator="like", operatorsVisible=false)
+     * @GRID\Column(title="asf.commerce.label.tax_rate", defaultOperator="eq", operatorsVisible=false)
      * 
      * @var string
      */
 	protected $value;
 
 	/**
+	 * @ORM\Column(type="text", nullable=true)
+	 * @GRID\Column(title="asf.commerce.label.tax_description", operatorsVisible=false)
+	 *
+	 * @var string
+	 */
+	protected $description;
+	
+	/**
      * @ORM\Column(type="boolean")
-     * @GRID\Column(title="asf.commerce.is_pourcent", defaultOperator="like", operatorsVisible=false)
+     * @GRID\Column(visible=false)
      * 
      * @var string
      */
@@ -189,6 +197,25 @@ abstract class TaxModel implements TaxInterface
 		return $this;
 	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see \ASF\CommerceBundle\Model\Tax\TaxInterface::getDescription()
+	 */
+	public function getDescription()
+	{
+	    return $this->description;
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see \ASF\CommerceBundle\Model\Tax\TaxInterface::setDescription()
+	 */
+	public function setDescription($description)
+	{
+	    $this->description = $description;
+	    return $this;
+	}
+	
 	/**
 	 * (non-PHPdoc)
 	 * @see \ASF\CommerceBundle\Model\Tax\TaxInterface::getState()
