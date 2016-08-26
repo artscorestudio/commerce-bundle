@@ -1,0 +1,17 @@
+{% extends 'ASFCommerceBundle::layout.html.twig' %}
+
+{% block title %}{{ 'asf.commerce.title.discounts_list'|trans }}{% endblock %}
+
+{% block asf_product_content %}
+
+	<h1>{{ 'asf.commerce.title.discounts_list'|trans }}</h1>
+
+	<a class="btn btn-default" href="{{ path('asf_commerce_discount_add') }}" title="{{ 'asf.commerce.btn.add_discount'|trans }}">{{ 'asf.commerce.btn.add_discount'|trans }}</a>
+
+	<div class="row">
+		<div class="col-xs-12">
+			{{ grid(grid) }}
+		</div>
+	</div>
+	
+{% endblock %}

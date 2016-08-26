@@ -2,3 +2,5 @@ services:
     asf_commerce.manager:
         class: ASF\CommerceBundle\Utils\Manager\CommerceManager
         arguments: ["@doctrine.orm.default_entity_manager", "%asf_commerce.cart.entity%", "%asf_commerce.catalog.entity%", "%asf_commerce.discount.entity%", "%asf_commerce.tax.entity%"]
+
+    

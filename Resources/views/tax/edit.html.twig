@@ -1,0 +1,15 @@
+{% extends 'ASFCommerceBundle::layout.html.twig' %}
+
+{% form_theme form 'Form/fields.html.twig' %}
+
+{% block title %}{{ tax.getName() }}{% endblock %}
+
+{% block asf_commerce_content %}
+
+    <div class="container-fluid">
+    	<div class="row">
+    	    {{ form(form) }}
+    	</div>
+    </div>
+
+{% endblock %}

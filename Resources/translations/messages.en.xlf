@@ -8,25 +8,151 @@
                 <source>asf.commerce.label.unit_price_excl_vat</source>
                 <target>Unit Price (Excl. VAT)</target>
             </trans-unit>
-            
             <trans-unit id="asf.commerce.label.unit_price_incl_vat">
                 <source>asf.commerce.label.unit_price_incl_vat</source>
                 <target>Unit Price (Incl. VAT)</target>
             </trans-unit>
-            
             <trans-unit id="asf.commerce.label.quantity">
                 <source>asf.commerce.label.quantity</source>
                 <target>Quantity</target>
             </trans-unit>
-            
             <trans-unit id="asf.commerce.label.tax">
                 <source>asf.commerce.label.tax</source>
                 <target>Tax</target>
             </trans-unit>
-            
             <trans-unit id="asf.commerce.label.discount">
                 <source>asf.commerce.label.discount</source>
                 <target>Discount</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.default_value.tax_name">
+                <source>asf.commerce.default_value.tax_name</source>
+                <target>New tax</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.default_value.discount_name">
+                <source>asf.commerce.default_value.discount_name</source>
+                <target>New discount</target>
+            </trans-unit>
+            
+            <!-- LINKS -->
+            <trans-unit id="asf.commerce.link.commerce_manager">
+                <source>asf.commerce.link.commerce_manager</source>
+                <target>Commerce Manager</target>
+            </trans-unit>
+            
+            <!-- TITLES -->
+            <trans-unit id="asf.commerce.title.commerce_manager">
+                <source>asf.commerce.title.commerce_manager</source>
+                <target>Commerce Manager</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.title.taxes_list">
+                <source>asf.commerce.title.taxes_list</source>
+                <target>Taxes list</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.title.discounts_list">
+                <source>asf.commerce.title.discounts_list</source>
+                <target>Discounts list</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.title.edit_tax">
+                <source>asf.commerce.title.edit_tax</source>
+                <target>Edit tax</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.title.edit_discount">
+                <source>asf.commerce.title.edit_discount</source>
+                <target>Edit discount</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.title.h4.manage_taxes">
+                <source>asf.commerce.title.h4.manage_taxes</source>
+                <target>Taxes Manager</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.title.h4.manage_discounts">
+                <source>asf.commerce.title.h4.manage_discounts</source>
+                <target>Discounts Manager</target>
+            </trans-unit>
+            
+            <!-- TEXTS -->
+            <trans-unit id="asf.commerce.text.commerce_manager">
+                <source>asf.commerce.text.commerce_manager</source>
+                <target>Manage all features for your online store.</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.text.manage_taxes">
+                <source>asf.commerce.text.manage_taxes</source>
+                <target>Add, edit, delete taxes in your store.</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.text.manage_discounts">
+                <source>asf.commerce.text.manage_discounts</source>
+                <target>Add, edit, delete discounts in your store.</target>
+            </trans-unit>
+            
+            <!-- BUTTONS -->
+            <trans-unit id="asf.commerce.btn.taxes_list">
+                <source>asf.commerce.btn.taxes_list</source>
+                <target>View taxes list</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.btn.discounts_list">
+                <source>asf.commerce.btn.discounts_list</source>
+                <target>View discounts list</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.btn.add_discount">
+                <source>asf.commerce.btn.add_discount</source>
+                <target>Add discount</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.btn.add_tax">
+                <source>asf.commerce.btn.add_tax</source>
+                <target>Add tax</target>
+            </trans-unit>
+            
+            <!-- MESSAGES -->
+            <trans-unit id="asf.commerce.msg.delete.confirm">
+                <source>asf.commerce.msg.delete.confirm</source>
+                <target>Do you want to delete %name% ?</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.msg.list.no_tax">
+                <source>asf.commerce.msg.list.no_tax</source>
+                <target>No taxes.</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.msg.success.tax_deleted">
+                <source>asf.commerce.msg.success.tax_deleted</source>
+                <target>The tax "%name%" has been successfully deleted.</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.msg.success.tax_created">
+                <source>asf.commerce.msg.success.tax_created</source>
+                <target>The tax "%name%" has been successfully created.</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.msg.success.tax_updated">
+                <source>asf.commerce.msg.success.tax_updated</source>
+                <target>The tax "%name%" has been successfully updated.</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.msg.success.tax_not_found">
+                <source>asf.commerce.msg.success.tax_not_found</source>
+                <target>The tax was not found.</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.msg.list.no_discount">
+                <source>asf.commerce.msg.list.no_discount</source>
+                <target>No discounts.</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.msg.success.discount_deleted">
+                <source>asf.commerce.msg.success.discount_deleted</source>
+                <target>The discount "%name%" has been successfully deleted.</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.msg.success.discount_created">
+                <source>asf.commerce.msg.success.discount_created</source>
+                <target>The discount "%name%" has been successfully created.</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.msg.success.discount_updated">
+                <source>asf.commerce.msg.success.discount_updated</source>
+                <target>The discount "%name%" has been successfully updated.</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.msg.success.discount_not_found">
+                <source>asf.commerce.msg.success.discount_not_found</source>
+                <target>The discount was not found.</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.default_value.this_tax">
+                <source>asf.commerce.default_value.this_tax</source>
+                <target>this tax</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.default_value.this_discount">
+                <source>asf.commerce.default_value.this_discount</source>
+                <target>this discount</target>
             </trans-unit>
             
         </body>
