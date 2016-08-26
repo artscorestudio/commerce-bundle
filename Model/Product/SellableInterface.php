@@ -10,6 +10,9 @@
 
 namespace ASF\CommerceBundle\Model\Product;
 
+use ASF\CommerceBundle\Model\Tax\TaxInterface;
+use ASW\CommerceBundle\Entity\DiscountProduct;
+
 /**
  * Interface for defined products can be sold.
  * 
@@ -31,21 +34,52 @@ interface SellableInterface
     public function setProduct($product);
     
     /**
-     * @return float
+     * @return number
      */
     public function getUnitPriceExclVAT();
     
     /**
-     * @param float $unitPrice
+     * @param number $unitPrice
      * 
      * @return \ASF\CommerceBundle\Model\Product\SellableInterface
      */
-    public function setUnitPriceExclVAT($unitPrice);
+    public function setUnitPriceExclVAT($price);
+    
+    /**
+     * @return number
+     */
+    public function getUnitPriceInclVAT();
+    
+    /**
+     * @param number $price
+     * @return \ASF\CommerceBundle\Model\Product\SellableInterface
+     */
+    public function setUnitPriceInclVAT($price);
     
     /**
      * @return number
      */
     public function getQuantity();
     
+    /**
+     * @param number $quantity
+     */
     public function setQuantity($quantity);
+    
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getTaxes();
+    
+    /**
+     * @param TaxInterface $tax
+     * @return \ASF\CommerceBundle\Model\Product\SellableInterface
+     */
+    public function addTax(TaxInterface $tax);
+    
+    /**
+     * @param TaxInterface $tax
+     * @return \ASF\CommerceBundle\Model\Product\SellableInterface
+     */
+    public function removeTax(TaxInterface $tax);
 }
