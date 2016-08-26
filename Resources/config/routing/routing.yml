@@ -1,0 +1,37 @@
+asf_commerce_manager_homepage:
+    path: /
+    defaults: { _controller: "ASFCommerceBundle:Manager:index" }
+
+# Discount
+asf_commerce_discount_list:
+    path: /discount/list
+    defaults: { _controller: "ASFCommerceBundle:Discount:list" }
+    
+asf_commerce_discount_add:
+    path: /discount/add
+    defaults: { _controller: "ASFCommerceBundle:Discount:edit" }
+    
+asf_commerce_discount_edit:
+    path: /discount/edit/{id}
+    defaults: { _controller: "ASFCommerceBundle:Discount:edit" }
+    
+asf_commerce_discount_delete:
+    path: /discount/delete/{id}
+    defaults: { _controller: "ASFCommerceBundle:Discount:delete" }
+
+# Tax
+asf_commerce_tax_list:
+    path: /tax/list
+    defaults: { _controller: "ASFCommerceBundle:Tax:list" }
+    
+asf_commerce_tax_add:
+    path: /tax/add
+    defaults: { _controller: "ASFCommerceBundle:Tax:edit" }
+    
+asf_commerce_tax_edit:
+    path: /tax/edit/{id}
+    defaults: { _controller: "ASFCommerceBundle:Tax:edit" }
+    
+asf_commerce_tax_delete:
+    path: /tax/delete/{id}
+    defaults: { _controller: "ASFCommerceBundle:Tax:delete" }    

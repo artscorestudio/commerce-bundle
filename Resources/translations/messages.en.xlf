@@ -38,6 +38,14 @@
                 <source>asf.commerce.link.commerce_manager</source>
                 <target>Commerce Manager</target>
             </trans-unit>
+            <trans-unit id="asf.commerce.link.taxes_list">
+                <source>asf.commerce.link.taxes_list</source>
+                <target>Discounts list</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.link.discounts_list">
+                <source>asf.commerce.link.discounts_list</source>
+                <target>Taxes list</target>
+            </trans-unit>
             
             <!-- TITLES -->
             <trans-unit id="asf.commerce.title.commerce_manager">
@@ -74,12 +82,12 @@
                 <source>asf.commerce.text.commerce_manager</source>
                 <target>Manage all features for your online store.</target>
             </trans-unit>
-            <trans-unit id="asf.commerce.text.manage_taxes">
-                <source>asf.commerce.text.manage_taxes</source>
+            <trans-unit id="asf.commerce.text.h4.manage_taxes">
+                <source>asf.commerce.text.h4.manage_taxes</source>
                 <target>Add, edit, delete taxes in your store.</target>
             </trans-unit>
-            <trans-unit id="asf.commerce.text.manage_discounts">
-                <source>asf.commerce.text.manage_discounts</source>
+            <trans-unit id="asf.commerce.text.h4.manage_discounts">
+                <source>asf.commerce.text.h4.manage_discounts</source>
                 <target>Add, edit, delete discounts in your store.</target>
             </trans-unit>
             

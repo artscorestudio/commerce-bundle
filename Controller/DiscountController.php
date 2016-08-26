@@ -11,7 +11,6 @@
 namespace ASF\CommerceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use ASF\CommerceBundle\Model\Discount\DiscountModel;
 use ASF\CommerceBundle\Event\CommerceEvents;
 use Symfony\Component\EventDispatcher\Event;
@@ -22,8 +21,6 @@ use APY\DataGridBundle\Grid\Action\RowAction;
 /**
  * Discount Controller gather generic app views.
  * 
- * @Route("/commerce/discount")
- * 
  * @author Nicolas Claverie <info@artscore-studio.fr>
  */
 class DiscountController extends Controller
@@ -31,11 +28,9 @@ class DiscountController extends Controller
     /**
      * Discount list.
      * 
-     * @Route("/", name="asf_commerce_discounts_list")
-     * 
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function lisAction()
+    public function listAction()
     {
         $this->get('event_dispatcher')->dispatch(CommerceEvents::LIST_DISCOUNTS, new Event());
         
@@ -75,9 +70,6 @@ class DiscountController extends Controller
 
     /**
      * Add or edit a discount.
-     * 
-     * @Route("/commerce/discount/add", name="asf_commerce_discount_add")
-     * @Route("/commerce/discount/edit/{id}", name="asf_commerce_discount_edit")
      * 
      * @param Request $request
      * @param int     $id      ASFCommerceBundle:Discount Entity ID
@@ -142,8 +134,6 @@ class DiscountController extends Controller
     
     /**
      * Delete a discount.
-     * 
-     * @Route("/commerce/discounr/delete/{id}", name="asf_commerce_discount_delete")
      * 
      * @param int $id ASFProductBundle:Tax Entity ID
      *

@@ -38,6 +38,14 @@
                 <source>asf.commerce.link.commerce_manager</source>
                 <target>Gestion eCommerce</target>
             </trans-unit>
+            <trans-unit id="asf.commerce.link.taxes_list">
+                <source>asf.commerce.link.taxes_list</source>
+                <target>Liste des taxes</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.link.discounts_list">
+                <source>asf.commerce.link.discounts_list</source>
+                <target>Liste des réductions</target>
+            </trans-unit>
             
             <!-- TITLES -->
             <trans-unit id="asf.commerce.title.commerce_manager">
@@ -74,12 +82,12 @@
                 <source>asf.commerce.text.commerce_manager</source>
                 <target>Gérez toutes les fonctionnalités de votre magasin eCommerce.</target>
             </trans-unit>
-            <trans-unit id="asf.commerce.text.manage_taxes">
-                <source>asf.commerce.text.manage_taxes</source>
+            <trans-unit id="asf.commerce.text.h4.manage_taxes">
+                <source>asf.commerce.text.h4.manage_taxes</source>
                 <target>Ajoutez, éditez, supprimez les taxes utilisées dans votre magasin.</target>
             </trans-unit>
-            <trans-unit id="asf.commerce.text.manage_discounts">
-                <source>asf.commerce.text.manage_discounts</source>
+            <trans-unit id="asf.commerce.text.h4.manage_discounts">
+                <source>asf.commerce.text.h4.manage_discounts</source>
                 <target>Ajoutez, éditez, supprimez les réductions utilisées dans votre magasin.</target>
             </trans-unit>
             

@@ -11,7 +11,6 @@
 namespace ASF\CommerceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use ASF\CommerceBundle\Event\CommerceEvents;
 use Symfony\Component\EventDispatcher\Event;
 use APY\DataGridBundle\Grid\Source\Entity;
@@ -22,8 +21,6 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Tax Controller gather generic app views.
  * 
- * @Route("/commerce/tax")
- * 
  * @author Nicolas Claverie <info@artscore-studio.fr>
  */
 class TaxController extends Controller
@@ -31,11 +28,9 @@ class TaxController extends Controller
     /**
      * Tax list.
      * 
-     * @Route("/", name="asf_commerce_taxes_list")
-     * 
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function lisAction()
+    public function listAction()
     {
         $this->get('event_dispatcher')->dispatch(CommerceEvents::LIST_TAXES, new Event());
         
@@ -75,9 +70,6 @@ class TaxController extends Controller
     
     /**
      * Add or edit a tax.
-     * 
-     * @Route("/commerce/tax/add", name="asf_commerce_tax_add")
-     * @Route("/commerce/tax/edit/{id}", name="asf_commerce_tax_edit")
      * 
      * @param Request $request
      * @param int     $id      ASFCommerceBundle:Tax Entity ID
@@ -142,8 +134,6 @@ class TaxController extends Controller
     
     /**
      * Delete a tax.
-     * 
-     * @Route("/commerce/tax/delete/{id}", name="asf_commerce_tax_delete")
      * 
      * @param int $id ASFProductBundle:Tax Entity ID
      *
