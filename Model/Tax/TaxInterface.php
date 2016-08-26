@@ -55,6 +55,17 @@ interface TaxInterface
 	 */
 	public function setValue($value);
 	
+	/**
+	 * @return string
+	 */
+	public function getDescription();
+	
+	/**
+	 * @param string $description
+	 * @return \ASF\CommerceBundle\Model\Tax\TaxInterface
+	 */
+	public function setDescription($description);
+	
 	/** 
 	 * @return string
 	 */
