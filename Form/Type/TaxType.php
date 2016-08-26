@@ -69,6 +69,6 @@ class TaxType extends AbstractType
      */
     public function getName()
     {
-        return 'cart_type';
+        return 'tax_type';
     }
 }

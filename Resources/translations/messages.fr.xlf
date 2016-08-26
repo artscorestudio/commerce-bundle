@@ -65,6 +65,30 @@
                 <source>asf.commerce.label.tax_description</source>
                 <target>Description</target>
             </trans-unit>
+            <trans-unit id="asf.commerce.label.yes">
+                <source>asf.commerce.label.yes</source>
+                <target>Oui</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.no">
+                <source>asf.commerce.label.no</source>
+                <target>Non</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.amount">
+                <source>asf.commerce.label.amount</source>
+                <target>Montant</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.is_pourcent">
+                <source>asf.commerce.label.is_pourcent</source>
+                <target>En %</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.code">
+                <source>asf.commerce.label.code</source>
+                <target>Code</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.discount_name">
+                <source>asf.commerce.label.discount_name</source>
+                <target>Libellé</target>
+            </trans-unit>
             
             <!-- LINKS -->
             <trans-unit id="asf.commerce.link.commerce_manager">

@@ -86,7 +86,7 @@ abstract class DiscountModel implements DiscountInterface
 	/**
      * @ORM\Column(type="float", nullable=false)
      * @Assert\NotBlank()
-     * @GRID\Column(title="asf.commerce.discount.value", defaultOperator="like", operatorsVisible=false)
+     * @GRID\Column(title="asf.commerce.discount.value", defaultOperator="eq", operatorsVisible=false)
      * 
      * @var string
      */
@@ -94,7 +94,7 @@ abstract class DiscountModel implements DiscountInterface
 	
 	/**
      * @ORM\Column(type="boolean")
-     * @GRID\Column(title="asf.commerce.discount.is_pourcent", defaultOperator="like", operatorsVisible=false)
+     * @GRID\Column(title="asf.commerce.discount.is_pourcent", defaultOperator="eq", operatorsVisible=false)
      * 
      * @var string
      */

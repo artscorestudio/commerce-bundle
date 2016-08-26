@@ -13,6 +13,10 @@ namespace ASF\CommerceBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use ASF\CommerceBundle\Model\Discount\DiscountModel;
 
 /**
  * Discount Form Type.
@@ -22,40 +26,38 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class DiscountType extends AbstractType
 {
     /**
-     * @var string
-     */
-    protected $className;
-
-    /**
-     * @param string $className
-     * @param bool   $isBrandEntityEnabled
-     */
-    public function __construct($className)
-    {
-        $this->className = $className;
-    }
-
-    /**
      * @param FormBuilderInterface $builder
      * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @see \Symfony\Component\Form\AbstractType::configureOptions()
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => $this->className,
+        $builder->add('name', TextType::class, array(
+            'label' => 'asf.commerce.label.discount_name',
+            'required' => true
+        ))
+        ->add('code', TextType::class, array(
+            'label' => 'asf.commerce.label.code',
+            'required' => false
+        ))
+        ->add('value', TextType::class, array(
+            'label' => 'asf.commerce.label.amount',
+            'required' => true
+        ))
+        ->add('isPourcent', ChoiceType::class, array(
+            'label' => 'asf.commerce.label.is_pourcent',
+            'choices' => array('asf.commerce.label.yes' => 0, 'asf.commerce.label.no' => 1),
+            'required' => true
+        ))
+        ->add('state', ChoiceType::class, array(
+            'label' => 'asf.commerce.label.state',
+            'required' => true,
+            'choices' => array(
+                'asf.commerce.state.draft' => DiscountModel::STATE_DRAFT,
+                'asf.commerce.state.published' => DiscountModel::STATE_PUBLISHED
+            ),
         ));
     }
-
+    
     /**
      * (non-PHPdoc).
      *
@@ -63,6 +65,6 @@ class DiscountType extends AbstractType
      */
     public function getName()
     {
-        return 'cart_type';
+        return 'discount_type';
     }
 }
