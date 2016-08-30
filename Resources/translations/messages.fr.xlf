@@ -15,8 +15,40 @@
                 <source>asf.commerce.state.deleted</source>
                 <target>Supprimé</target>
             </trans-unit>
+            <trans-unit id="asf.commerce.state.waiting">
+                <source>asf.commerce.state.waiting</source>
+                <target>En cours</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.state.validated">
+                <source>asf.commerce.state.validated</source>
+                <target>Validé</target>
+            </trans-unit>
             
             <!-- LABELS -->
+            <trans-unit id="asf.commerce.label.choose_discount">
+                <source>asf.commerce.label.choose_discount</source>
+                <target>Choisir une réduction</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.search_discount">
+                <source>asf.commerce.label.search_discount</source>
+                <target>Chercher une réduction</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.search_tax">
+                <source>asf.commerce.label.search_tax</source>
+                <target>Chercher une taxe</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.taxes_list">
+                <source>asf.commerce.label.taxes_list</source>
+                <target>Liste des taxes</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.disocunts_list">
+                <source>asf.commerce.label.discounts_list</source>
+                <target>Liste des réductions</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.products_list">
+                <source>asf.commerce.label.products_list</source>
+                <target>Liste des produits</target>
+            </trans-unit>
             <trans-unit id="asf.commerce.label.unit_price_excl_vat">
                 <source>asf.commerce.label.unit_price_excl_vat</source>
                 <target>Prix Unitaire (HT)</target>
@@ -24,6 +56,14 @@
             <trans-unit id="asf.commerce.label.unit_price_incl_vat">
                 <source>asf.commerce.label.unit_price_incl_vat</source>
                 <target>Prix unitaire (TTC)</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.total_excl_vat">
+                <source>asf.commerce.label.total_vat</source>
+                <target>Total (HT)</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.total_incl_vat">
+                <source>asf.commerce.label.total_incl_vat</source>
+                <target>Total (TTC)</target>
             </trans-unit>
             <trans-unit id="asf.commerce.label.quantity">
                 <source>asf.commerce.label.quantity</source>
@@ -89,6 +129,14 @@
                 <source>asf.commerce.label.discount_name</source>
                 <target>Libellé</target>
             </trans-unit>
+            <trans-unit id="asf.commerce.label.purchased_at">
+                <source>asf.commerce.label.purchased_at</source>
+                <target>Date d'achat</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.label.cart_products_list">
+                <source>asf.commerce.label.cart_products_list</source>
+                <target>Liste des produits</target>
+            </trans-unit>
             
             <!-- LINKS -->
             <trans-unit id="asf.commerce.link.commerce_manager">
@@ -112,6 +160,14 @@
             <trans-unit id="asf.commerce.title.taxes_list">
                 <source>asf.commerce.title.taxes_list</source>
                 <target>Liste des taxes</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.title.add_cart">
+                <source>asf.commerce.title.add_cart</source>
+                <target>Création d'un panier</target>
+            </trans-unit>
+            <trans-unit id="asf.commerce.title.edit_cart">
+                <source>asf.commerce.title.edit_cart</source>
+                <target>Edition d'un panier</target>
             </trans-unit>
             <trans-unit id="asf.commerce.title.discounts_list">
                 <source>asf.commerce.title.discounts_list</source>
