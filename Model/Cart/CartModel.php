@@ -33,6 +33,7 @@ abstract class CartModel implements CartInterface
      */
     const STATE_WAITING = 'waiting';
     const STATE_CLOSED = 'closed';
+    const STATE_VALIDATED = 'validated';
     const STATE_DELETED = 'deleted';
     
     /**
@@ -52,6 +53,7 @@ abstract class CartModel implements CartInterface
      * @GRID\Column(title="asf.commerce.state", filter="select",  selectFrom="values", values={
      *     CartModel::STATE_WAITING = "waiting",
      *     CartModel::STATE_CLOSED = "closed",
+     *     CartModel::STATE_VALIDATED = "validated",
      *     CartModel::STATE_DELETED = "deleted"
      * }, defaultOperator="eq", operatorsVisible=false)
      *
@@ -69,6 +71,41 @@ abstract class CartModel implements CartInterface
      * @var ArrayCollection
      */
     protected $discounts;
+    
+    /**
+     * @ORM\Column(type="string", nullable=false)
+     * @Assert\NotBlank()
+     * @GRID\Column(title="asf.commerce.cart.reference", defaultOperator="like", operatorsVisible=false)
+     *
+     * @var string
+     */
+    protected $reference;
+    
+    /**
+     * @ORM\Column(type="float")
+     * @GRID\Column(title="asf.commerce.label.total_excl_vat", defaultOperator="like", operatorsVisible=false)
+     * @Assert\NotBlank()
+     *
+     * @var number
+     */
+    protected $totalExclVAT;
+    
+    /**
+     * @ORM\Column(type="float")
+     * @GRID\Column(title="asf.commerce.label.total_incl_vat", defaultOperator="like", operatorsVisible=false)
+     * @Assert\NotBlank()
+     *
+     * @var number
+     */
+    protected $totalInclVAT;
+    
+    /**
+     * @ORM\Column(type="datetime", nullable=false)
+     * @GRID\Column(visible=false)
+     *
+     * @var \DateTime
+     */
+    protected $purchasedAt;
     
     /**
      * @ORM\Column(type="datetime", nullable=false)
@@ -96,9 +133,10 @@ abstract class CartModel implements CartInterface
     
     public function __construct()
     {
-        $this->state = self::STATE_DRAFT;
+        $this->state = self::STATE_WAITING;
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
+        $this->purchasedAt = new \DateTime();
         $this->discounts = new ArrayCollection();
     }
     
@@ -168,6 +206,81 @@ abstract class CartModel implements CartInterface
         return $this;
     }
     
+    /**
+     * (non-PHPdoc)
+     * @see \ASF\CommerceBundle\Model\Cart\CartInterface::getReference()
+     */
+    public function getReference()
+    {
+    	return $this->reference;
+    }
+    
+    /**
+     * (non-PHPdoc)
+     * @see \ASF\CommerceBundle\Model\Cart\CartInterface::setReference()
+     */
+    public function setReference($reference)
+    {
+    	$this->reference = $reference;
+    	return $this;
+    }
+    
+    /**
+     * (non-PHPdoc)
+     * @see \ASF\CommerceBundle\Model\Cart\CartInterface::getTotalExclVAT()
+     */
+    public function getTotalExclVAT()
+    {
+    	return $this->totalExclVAT;
+    }
+    
+    /**
+     * (non-PHPdoc)
+     * @see \ASF\CommerceBundle\Model\Cart\CartInterface::setTotalExclVAT()
+     */
+    public function setTotalExclVAT($totalExclVAT)
+    {
+    	$this->totalExclVAT = $totalExclVAT;
+    	return $this;
+    }
+    
+    /**
+     * (non-PHPdoc)
+     * @see \ASF\CommerceBundle\Model\Cart\CartInterface::getTotalInclVAT()
+     */
+    public function getTotalInclVAT()
+    {
+    	return $this->totalInclVAT;
+    }
+    
+    /**
+     * (non-PHPdoc)
+     * @see \ASF\CommerceBundle\Model\Cart\CartInterface::setTotalInclVAT()
+     */
+    public function setTotalInclVAT($totalInclVAT)
+    {
+    	$this->totalInclVAT = $totalInclVAT;
+    	return $this;
+    }
+    
+    /**
+     * (non-PHPdoc)
+     * @see \ASF\CommerceBundle\Model\Cart\CartInterface::getPurchaseAt()
+     */
+    public function getPurchasedAt()
+    {
+    	return $this->purchasedAt;
+    }
+    
+    /**
+     * (non-PHPdoc)
+     * @see \ASF\CommerceBundle\Model\Cart\CartInterface::setPurchaseAt()
+     */
+    public function setPurchasedAt($purchasedAt)
+    {
+    	$this->purchasedAt = $purchasedAt;
+    	return $this;
+    }
     
     /**
      * (non-PHPdoc).
@@ -245,6 +358,7 @@ abstract class CartModel implements CartInterface
         return array(
             self::STATE_WAITING,
             self::STATE_CLOSED,
+            self::STATE_VALIDATED,
             self::STATE_DELETED,
         );
     }

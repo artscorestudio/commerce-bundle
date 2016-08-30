@@ -52,6 +52,52 @@ interface CartInterface
     public function removeDiscount(DiscountInterface $discount);
     
     /**
+     * @return string
+     */
+    public function getReference();
+    
+    /**
+     * @param string $refernce
+     *
+     * @return \ASF\CommerceBundle\Model\Cart\CartInterface
+     */
+    public function setReference($reference);
+    
+    /**
+     * @return number
+     */
+    public function getTotalExclVAT();
+    
+    /**
+     * @param number $totalExclVAT
+     * @return \ASF\CommerceBundle\Model\Cart\CartInterface
+     */
+    public function setTotalExclVAT($totalExclVAT);
+    
+    /**
+     * @return number
+     */
+    public function getTotalInclVAT();
+    
+    /**
+     * @param number $totalInclVAT
+     * @return \ASF\CommerceBundle\Model\Cart\CartInterface
+     */
+    public function setTotalInclVAT($totalInclVAT);
+    
+    /**
+     * @return \DateTime
+     */
+    public function getPurchasedAt();
+    
+    /**
+     * @param \DateTime $purchasedAt
+     *
+     * @return \ASF\CommerceBundle\Model\Cart\CartInterface
+     */
+    public function setPurchasedAt($purchasedAt);
+    
+    /**
      * @return \DateTime
      */
     public function getCreatedAt();

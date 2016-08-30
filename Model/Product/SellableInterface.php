@@ -59,6 +59,17 @@ interface SellableInterface
     /**
      * @return number
      */
+    public function getTotalInclVAT();
+    
+    /**
+     * @param number $price
+     * @return \ASF\CommerceBundle\Model\Product\SellableInterface
+     */
+    public function setTotalInclVAT($price);
+    
+    /**
+     * @return number
+     */
     public function getQuantity();
     
     /**
