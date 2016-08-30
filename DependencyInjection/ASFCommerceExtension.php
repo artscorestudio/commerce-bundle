@@ -15,13 +15,14 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 
 /**
  * This is the class that loads and manages your bundle configuration.
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class ASFCommerceExtension extends Extension
+class ASFCommerceExtension extends Extension implements PrependExtensionInterface
 {
     /**
      * {@inheritdoc}
@@ -40,7 +41,17 @@ class ASFCommerceExtension extends Extension
         $this->setDiscountParameters($container, $loader, $config);
         $this->setTaxParameters($container, $loader, $config);
     }
-
+    
+    /**
+     * {@inheritDoc}
+     * @see \Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface::prepend()
+     */
+    public function prepend(ContainerBuilder $container)
+    {
+        $bundles = $container->getParameter('kernel.bundles');
+        $container->setParameter('asf_commerce.asf_layout_enabled', isset($bundles['ASFLayoutBundle']));
+    }
+    
     /**
      * Set Cart Entity Parameters in Container.
      * 
@@ -106,6 +117,8 @@ class ASFCommerceExtension extends Extension
         $container->setParameter('asf_commerce.discount.entity', $config['discount']['entity']);
         $container->setParameter('asf_commerce.discount.form.name', $config['discount']['form']['name']);
         $container->setParameter('asf_commerce.discount.form.type', $config['discount']['form']['type']);
+        $container->setParameter('asf_commerce.discount.form.collection.type', $config['discount']['form']['collection']['type']);
+        $container->setParameter('asf_commerce.discount.form.collection.name', $config['discount']['form']['collection']['name']);
         $loader->load('services/discount.yml');
     }
     
@@ -127,6 +140,8 @@ class ASFCommerceExtension extends Extension
         $container->setParameter('asf_commerce.tax.entity', $config['tax']['entity']);
         $container->setParameter('asf_commerce.tax.form.name', $config['tax']['form']['name']);
         $container->setParameter('asf_commerce.tax.form.type', $config['tax']['form']['type']);
+        $container->setParameter('asf_commerce.tax.form.collection.type', $config['tax']['form']['collection']['type']);
+        $container->setParameter('asf_commerce.tax.form.collection.name', $config['tax']['form']['collection']['name']);
         $loader->load('services/tax.yml');
     }
 

@@ -12,7 +12,10 @@ namespace ASF\CommerceBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use ASF\CommerceBundle\Model\Cart\CartModel;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 
 /**
  * Cart Form Type.
@@ -22,38 +25,30 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class CartType extends AbstractType
 {
     /**
-     * @var string
-     */
-    protected $className;
-
-    /**
-     * @param string $className
-     * @param bool   $isBrandEntityEnabled
-     */
-    public function __construct($className)
-    {
-        $this->className = $className;
-    }
-
-    /**
      * @param FormBuilderInterface $builder
      * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @see \Symfony\Component\Form\AbstractType::configureOptions()
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => $this->className,
-        ));
+        $builder
+            ->add('discounts', DiscountCollectionType::class)
+            ->add('purchasedAt', DateTimeType::class, array(
+                'label' => 'asf.commerce.label.purchased_at',
+                'date_format' => 'dd-MM-yyyy',
+                'date_widget' => 'single_text'
+            ))
+            ->add('totalInclVAT', MoneyType::class, array(
+                'label' => 'asf.commerce.label.total_incl_vat',
+                'required' => true,
+            ))
+            ->add('state', ChoiceType::class, array(
+                'label' => 'asf.commerce.label.state',
+                'required' => true,
+                'choices' => array(
+                    'asf.commerce.state.waiting' => CartModel::STATE_WAITING,
+                    'asf.commerce.state.validated' => CartModel::STATE_VALIDATED
+                )
+            ));
     }
 
     /**

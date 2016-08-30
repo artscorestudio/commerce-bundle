@@ -128,8 +128,28 @@ class Configuration implements ConfigurationInterface
         $node = $builder->root('discount');
 
         $node
-            ->treatTrueLike(array('entity' => null, 'form' => array('type' => "ASF\CommerceBundle\Form\Type\DiscountType")))
-            ->treatFalseLike(array('entity' => null, 'form' => array('type' => "ASF\CommerceBundle\Form\Type\DiscountType")))
+            ->treatTrueLike(array(
+                'entity' => null, 
+                'form' => array(
+                    'type' => "ASF\CommerceBundle\Form\Type\DiscountType",
+                    'name' => "discount_type",
+                    'collection' => array(
+                        'type' => 'ASF\CommerceBundle\Form\Type\DiscountCollectionType',
+                        'name' => 'discount_collection_type'
+                    )
+                )
+            ))
+            ->treatFalseLike(array(
+                'entity' => null, 
+                'form' => array(
+                    'type' => "ASF\CommerceBundle\Form\Type\DiscountType",
+                    'name' => "discount_type",
+                    'collection' => array(
+                        'type' => 'ASF\CommerceBundle\Form\Type\DiscountCollectionType',
+                        'name' => 'discount_collection_type'
+                    )
+                )
+            ))
             ->addDefaultsIfNotSet()
             ->children()
                 ->scalarNode('entity')
@@ -148,6 +168,17 @@ class Configuration implements ConfigurationInterface
                             ->prototype('scalar')->end()
                             ->defaultValue(array('Default'))
                         ->end()
+                        ->arrayNode('collection')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->scalarNode('name')
+                                    ->defaultValue('discount_collection_type')
+                                ->end()
+                                ->scalarNode('type')
+                                    ->defaultValue('ASF\CommerceBundle\Form\Type\DiscountCollectionType')
+                                ->end()
+                            ->end()
+                        ->end()
                     ->end()
                 ->end()
             ->end()
@@ -165,8 +196,28 @@ class Configuration implements ConfigurationInterface
         $node = $builder->root('tax');
     
         $node
-            ->treatTrueLike(array('entity' => null, 'form' => array('type' => "ASF\CommerceBundle\Form\Type\TaxType")))
-            ->treatFalseLike(array('entity' => null, 'form' => array('type' => "ASF\CommerceBundle\Form\Type\TaxType")))
+            ->treatTrueLike(array(
+                'entity' => null, 
+                'form' => array(
+                    'type' => "ASF\CommerceBundle\Form\Type\TaxType",
+                    'name' => "tax_type",
+                    'collection' => array(
+                        'type' => 'ASF\CommerceBundle\Form\Type\TaxCollectionType',
+                        'name' => 'tax_collection_type'
+                    )
+                )
+            ))
+            ->treatFalseLike(array(
+                'entity' => null, 
+                'form' => array(
+                    'type' => "ASF\CommerceBundle\Form\Type\TaxType",
+                    'name' => "tax_type",
+                    'collection' => array(
+                        'type' => 'ASF\CommerceBundle\Form\Type\TaxCollectionType',
+                        'name' => 'tax_collection_type'
+                    )
+                )
+            ))
             ->addDefaultsIfNotSet()
             ->children()
                 ->scalarNode('entity')
@@ -184,6 +235,17 @@ class Configuration implements ConfigurationInterface
                         ->arrayNode('validation_groups')
                             ->prototype('scalar')->end()
                             ->defaultValue(array('Default'))
+                        ->end()
+                        ->arrayNode('collection')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->scalarNode('name')
+                                    ->defaultValue('tax_collection_type')
+                                ->end()
+                                ->scalarNode('type')
+                                    ->defaultValue('ASF\CommerceBundle\Form\Type\TaxCollectionType')
+                                ->end()
+                            ->end()
                         ->end()
                     ->end()
                 ->end()
