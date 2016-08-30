@@ -8,4 +8,9 @@ services:
         class: ASF\CommerceBundle\Form\Type\DiscountType
         tags:
             - { name: form.type, alias: discount_type }
-            
+
+    asf_commerce.form.type.discount_collection:
+        class: ASF\CommerceBundle\Form\Type\DiscountCollectionType
+        arguments: ["%asf_commerce.discount.entity%"]
+        tags:
+            - { name: form.type, alias: discount_collection_type }

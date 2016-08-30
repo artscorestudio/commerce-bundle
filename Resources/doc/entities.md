@@ -8,7 +8,7 @@ So, for persistance of the entities, you have to create your own bundle who inhe
 
 > All mapping informations are controlled throught the annoations in entities. For further informations about annotations, please check [Symfony documentation : Databases and Doctrine](http://symfony.com/doc/current/book/doctrine.html).
 
-## CartModel and CartInterface
+## CartModel, CartInterface and CartRetailerInterface
 
 If you want to create a Cart entity, a model class is available that you can expand or an interface to implement. If you create your Cart entity from scratch, do not forget to implement the CartInterface interface, which will be asked by the functionality of the bundle to ensure that your entity get the methods needed.
 
@@ -42,6 +42,48 @@ interface CartInterface
 ```
 
 [View source](../../Model/Cart/CartInterface.php).
+
+```php
+namespace ASF\CommerceBundle\Model\Cart;
+
+interface CartRetailerInterface
+{
+    /**
+     * @return mixed
+     */
+    public function getRetailer();
+    
+    /**
+     * @param mixed $retailer
+     *
+     * @return \ASF\CommerceBundle\Model\Cart\CartInterface
+     */
+    public function setRetailer($retailer);
+}
+```
+
+[View source](../../Model/Cart/CartRetailerInterface.php).
+
+## SellableInterface
+
+CommerceBundle does not provide a Product Entity. But CommerceBundle provide a Sellable Interface can be implemented by your custom Product Entity. For example, I made a ProductBundle who his goal is to manager product, without any notion of eCommerce features. This bundle is just for manage Products. When I make a eCommerce application, I use ProductBundle for manage Products and CommerceBundle for add eCommerce features. After that I create an Entity : for example SellableProduct who implements SellableInterface and have an attribute $product who is the relation with a Product.
+
+```php
+namespace Acme\CommerceBundle\Entity\SellableProduct;
+
+class SellableProduct interface SellableInterface
+{
+    /**
+     * @var Acme\ProductBundle\Entity\Product
+     */
+    private $product;
+    
+    // After that you have all attributes and methods from SellableInterface
+    private $unitPriceExclVAT;
+    
+    // [...]
+}
+```
 
 ## Discount and DiscountInterface
 

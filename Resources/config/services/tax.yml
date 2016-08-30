@@ -1,5 +1,5 @@
 services:
-    # Forms   
+    # Form   
     asf_commerce.form.factory.tax:
         class: ASF\CommerceBundle\Form\Factory\FormFactory
         arguments: ["@form.factory", "%asf_commerce.tax.form.name%", "%asf_commerce.tax.form.type%", "%asf_commerce.tax.entity%"]
@@ -8,4 +8,4 @@ services:
         class: ASF\CommerceBundle\Form\Type\TaxType
         tags:
             - { name: form.type, alias: tax_type }
-            
+

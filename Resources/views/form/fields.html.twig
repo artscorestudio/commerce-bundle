@@ -1,3 +1,45 @@
+{# ---------------------------------- Cart Form Type ---------------------------- #}
+{% block _cart_type_errors %}
+{% spaceless %}
+    {{ block('form_errors')  }}
+{% endspaceless %}
+{% endblock %}
+
+{% block _cart_type_widget %}
+{% spaceless %}
+
+    {{ form_errors(form) }}
+    
+    <div class="row">
+        <div class="col-sm-8">
+            {{ form_row(form.purchasedAt) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_row(form.state) }}
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12">
+            {{ form_row(form.products) }}
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12">
+            {{ form_row(form.discounts) }}
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-8">
+            {{ form_row(form.totalInclVAT) }}
+        </div>
+    </div>
+    
+{% endspaceless %}
+{% endblock %}
+
 {# ---------------------------------- Tax Form Type ---------------------------- #}
 {% block _tax_type_errors %}
 {% spaceless %}
@@ -140,69 +182,6 @@
         </div>
     </div>
     
-{% endspaceless %}
-{% endblock %}
-
-{# --------------------- Discount Collection Prototype ----------------------------- #}
-{% block discount_collection_item_widget %}
-{% spaceless %}
-    <tr class="discount" id="discount-__dsname__">
-        <td class="column-{{ prototype.vars.name }}">
-            {{ form_row(prototype, {'discountType': form.vars.discount_type}) }}
-        </td>
-        <td class="actions">
-            <a href="#" title="{{ 'Delete'|trans({}, 'asf_commerce') }}" class="delete-discount" data-id="discount-__dsname__"><span class="glyphicon glyphicon-remove"></span></a>
-        </td>
-    </tr>
-{% endspaceless %}
-{% endblock %}
-
-{# --------------------- Discount Collection Form Type ----------------------------- #}
-{% block discount_collection_row %}
-{% spaceless %}
-
-    {% if prototype is defined %}
-        {% set attr = attr|merge({'data-prototype': block(collection_item_widget) }) %}
-    {% endif %}
-    
-    <div {{ block('widget_container_attributes') }}>
-        <div class="row form-collection-cmd-wrapper">
-            <div class="col-xs-12 text-right">
-                <div class="btn-group btn-group-xs" role="group">
-                    <a href="#" title="{{ 'Add'|trans({}, 'asf_commerce') }}" class="discount-add">{{ 'Add discount'|trans({}, 'asf_commerce') }}</a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            {{ form_errors(form) }}
-        </div>
-        <div class="row">
-            <table class="table table-striped table-bordered discount-list form-collection">
-                {% set item_id = 0 %}
-                {% set totalDiscount = 0 %}
-                {% for item in form %}
-                    <tr class="discount" id="discount-{{ item_id }}">
-                        <td class="column-{{ item.vars.name }}">
-                            {{ form_row(item, {'discountType': form.vars.discount_type}) }}
-                        </td>
-                        <td class="actions">
-                            <a href="#" title="{{ 'Delete'|trans({}, 'asf_commerce') }}" class="delete-discount" data-id="discount-{{ item_id }}"><span class="glyphicon glyphicon-remove"></span></a>
-                        </td>
-                    </tr>
-                    {% set item_id = item_id + 1 %}
-                    {% set totalDiscount = totalDiscount + item.vars.value %}
-                {% endfor %}
-            </table>
-        </div>
-        <input type="hidden" name="totalDiscounts" value="{{ totalDiscount }}" />
-    </div>
-    <script type="text/javascript">
-    (function($, window, document){
-        $(function(){
-            $('#{{ form.vars.id }}').asfDiscountCollection();
-        });
-    }(window.jQuery, window, document));
-    </script>
 {% endspaceless %}
 {% endblock %}
 
