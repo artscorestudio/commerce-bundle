@@ -40,6 +40,7 @@ class CartType extends AbstractType
             ->add('totalInclVAT', MoneyType::class, array(
                 'label' => 'asf.commerce.label.total_incl_vat',
                 'required' => true,
+                'attr' => array('class' => 'cart-total')
             ))
             ->add('state', ChoiceType::class, array(
                 'label' => 'asf.commerce.label.state',
