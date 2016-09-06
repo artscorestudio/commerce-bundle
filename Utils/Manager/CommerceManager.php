@@ -117,4 +117,5 @@ class CommerceManager implements CommerceManagerInterface
         
         return $class->newInstanceArgs();
     }
+
 }

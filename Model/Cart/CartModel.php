@@ -73,8 +73,7 @@ abstract class CartModel implements CartInterface
     protected $discounts;
     
     /**
-     * @ORM\Column(type="string", nullable=false)
-     * @Assert\NotBlank()
+     * @ORM\Column(type="string", nullable=true)
      * @GRID\Column(title="asf.commerce.cart.reference", defaultOperator="like", operatorsVisible=false)
      *
      * @var string
@@ -82,9 +81,8 @@ abstract class CartModel implements CartInterface
     protected $reference;
     
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", nullable=true)
      * @GRID\Column(title="asf.commerce.label.total_excl_vat", defaultOperator="like", operatorsVisible=false)
-     * @Assert\NotBlank()
      *
      * @var number
      */
