@@ -22,6 +22,19 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 class SearchTaxType extends AbstractType
 {
     /**
+     * @var string
+     */
+    protected $className;
+    
+    /**
+     * @param string $className
+     */
+    public function __construct($className)
+    {
+        $this->className = $className;
+    }
+    
+    /**
      * {@inheritDoc}
      * @see \Symfony\Component\Form\AbstractType::configureOptions()
      */
@@ -29,8 +42,29 @@ class SearchTaxType extends AbstractType
     {
         $resolver->setDefaults(array(
             'label' => 'asf.commerce.label.search_tax',
-            'attr' => array('class' => 'select2')
+            'class' => $this->className,
+            'choice_label' => 'name',
+            'placeholder' => 'asf.commerce.label.choose_a_tax',
+            'attr' => array('class' => 'select2-entity'),
         ));
+    }
+    
+    /**
+     * (non-PHPdoc).
+     *
+     * @see \Symfony\Component\Form\FormTypeInterface::getName()
+     */
+    public function getBlockPrefix()
+    {
+        return 'search_tax';
+    }
+    
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getBlockPrefix();
     }
     
     /**
@@ -40,15 +74,5 @@ class SearchTaxType extends AbstractType
     public function getParent()
     {
     	return EntityType::class;
-    }
-    
-    /**
-     * (non-PHPdoc).
-     *
-     * @see \Symfony\Component\Form\FormTypeInterface::getName()
-     */
-    public function getName()
-    {
-        return 'search_tax_type';
     }
 }

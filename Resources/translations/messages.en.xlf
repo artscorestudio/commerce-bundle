@@ -137,6 +137,10 @@
                 <source>asf.commerce.label.cart_products_list</source>
                 <target>Cart Products list</target>
             </trans-unit>
+            <trans-unit id="asf.commerce.label.choose_a_tax">
+                <source>asf.commerce.label.choose_a_tax</source>
+                <target>Choose a tax</target>
+            </trans-unit>
             
             <!-- LINKS -->
             <trans-unit id="asf.commerce.link.commerce_manager">

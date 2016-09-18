@@ -9,3 +9,8 @@ services:
         tags:
             - { name: form.type, alias: tax_type }
 
+    asf_commerce.form.type.search_tax:
+        class: ASF\CommerceBundle\Form\Type\SearchTaxType
+        arguments: ["%asf_commerce.tax.entity%"]
+        tags:
+            - { name: form.type, alias: search_tax }
