@@ -45,6 +45,7 @@ class SearchTaxType extends AbstractType
             'class' => $this->className,
             'choice_label' => 'name',
             'placeholder' => 'asf.commerce.label.choose_a_tax',
+            'multiple' => true,
             'attr' => array('class' => 'select2-entity'),
         ));
     }
