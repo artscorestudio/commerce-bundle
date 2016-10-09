@@ -79,6 +79,9 @@ class CommerceManager implements CommerceManagerInterface
      */
     public function createCatalogInstance()
     {
+        if ( null === $this->catalogClassName )
+            throw new \Exception('The entity Catalog was not enabled in ASFCommerceBundle.');
+        
         $class = new \ReflectionClass($this->catalogClassName);
 
         return $class->newInstanceArgs();
@@ -106,16 +109,5 @@ class CommerceManager implements CommerceManagerInterface
         $class = new \ReflectionClass($this->taxClassName);
     
         return $class->newInstanceArgs();
-    }
-    
-    public function createCatalogInstance()
-    {
-        if ( null === $this->catalogClassName )
-            throw new \Exception('The entity Catalog was not enabled in ASFCommerceBundle.');
-        
-        $class = new \ReflectionClass($this->catalogClassName);
-        
-        return $class->newInstanceArgs();
     }
-
 }
